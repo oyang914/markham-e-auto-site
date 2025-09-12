@@ -261,50 +261,70 @@
     </div>
   </section>
 
-  <!-- 预约表单 -->
-  <section id="booking" class="section">
-    <div class="container">
-      <h2>在线预约</h2>
-      <form id="bookingForm" class="form">
-        <div class="grid">
-          <label>姓名
-            <input type="text" name="name" required placeholder="Ethan" />
-          </label>
-          <label>电话
-            <input type="tel" name="phone" required placeholder="+1 647 xxx xxxx" />
-          </label>
-          <label>邮箱（可选）
-            <input type="email" name="email" placeholder="you@example.com" />
-          </label>
-          <label>车型
-            <input type="text" name="car" required placeholder="2018 Toyota Corolla 1.8L" />
-          </label>
-          <label>服务类型
-            <select name="service" required>
-              <option value="">请选择</option>
-              <option>机油保养</option>
-              <option>刹车保养</option>
-              <option>电瓶救援/更换</option>
-              <option>OBD读码/故障排查</option>
-              <option>空调系统检查</option>
-              <option>其他</option>
-            </select>
-          </label>
-          <label>预约日期
-            <input type="date" name="date" required />
-          </label>
-        </div>
-        <label>问题描述
-          <textarea name="message" rows="4" placeholder="简要描述症状/灯亮/异响等…"></textarea>
+<!-- 预约表单 -->
+<section id="booking" class="section">
+  <div class="container">
+    <h2>在线预约</h2>
+
+    <!-- 关键：action=Formspree端点 + method="POST" -->
+    <form id="bookingForm" class="form"
+          action="https://formspree.io/f/xpwjnqqe" method="POST">
+      <div class="grid">
+        <label>姓名
+          <input type="text" name="name" required placeholder="Ethan" />
         </label>
-        <div class="form-actions">
-          <button class="btn btn-primary" type="submit">提交预约</button>
-          <span id="formStatus" class="form-status" aria-live="polite"></span>
-        </div>
-      </form>
-      <p class="muted small">提交后我们将通过电话/短信确认，提交即表示同意 <a href="#">服务条款</a> 与 <a href="#">隐私政策</a>。</p>
-    </div>
-  </section>
+        <label>电话
+          <input type="tel" name="phone" required placeholder="+1 647 xxx xxxx"
+                 pattern="^[0-9+()\\-\\s]{7,}$" />
+        </label>
+        <label>邮箱（可选）
+          <input type="email" name="email" placeholder="you@example.com" />
+        </label>
+        <label>车型
+          <input type="text" name="car" required placeholder="2018 Toyota Corolla 1.8L" />
+        </label>
+        <label>服务类型
+          <select name="service" required>
+            <option value="">请选择</option>
+            <option>机油保养</option>
+            <option>刹车保养</option>
+            <option>电瓶救援/更换</option>
+            <option>OBD读码/故障排查</option>
+            <option>空调系统检查</option>
+            <option>其他</option>
+          </select>
+        </label>
+        <label>预约日期
+          <input type="date" name="date" required />
+        </label>
+      </div>
+
+      <label>问题描述
+        <textarea name="message" rows="4" placeholder="简要描述症状/灯亮/异响等…"></textarea>
+      </label>
+
+      <!-- 可选：自定义邮件标题 / 成功后跳转页 -->
+      <input type="hidden" name="_subject" value="来自网站的预约请求" />
+      <!-- <input type="hidden" name="_redirect" value="https://markhameauto.ca/thanks.html" /> -->
+
+      <!-- 防垃圾 honeypot（正常用户不可见，name 不要改） -->
+      <div style="display:none;">
+        <label>请不要填写此字段<input type="text" name="_gotcha"></label>
+      </div>
+
+      <div class="form-actions">
+        <button class="btn btn-primary" type="submit">提交预约</button>
+        <span id="formStatus" class="form-status" aria-live="polite"></span>
+      </div>
+    </form>
+
+    <p class="muted small">
+      提交后我们将通过电话/短信确认，提交即表示同意
+      <a href="#">服务条款</a> 与 <a href="#">隐私政策</a>。
+    </p>
+  </div>
+</section>
+
 
   <!-- FAQ -->
   <section id="faq" class="section alt">
