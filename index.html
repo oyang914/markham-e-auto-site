@@ -90,7 +90,7 @@
   </div>
 </header>
 
-  <!-- 首屏 Hero -->
+  <!-- 首屏 -->
   <section id="hero" class="hero">
     <div class="container hero-grid">
       <div class="hero-copy">
@@ -265,8 +265,6 @@
 <section id="booking" class="section">
   <div class="container">
     <h2>在线预约</h2>
-
-    <!-- 关键：action=Formspree端点 + method="POST" -->
     <form id="bookingForm" class="form"
           action="https://formspree.io/f/xpwjnqqe" method="POST">
       <div class="grid">
@@ -303,9 +301,8 @@
         <textarea name="message" rows="4" placeholder="简要描述症状/灯亮/异响等…"></textarea>
       </label>
 
-      <!-- 可选：自定义邮件标题 / 成功后跳转页 -->
+      <!-- 自定义邮件标题 -->
       <input type="hidden" name="_subject" value="来自网站的预约请求" />
-      <!-- <input type="hidden" name="_redirect" value="https://markhameauto.ca/thanks.html" /> -->
 
       <!-- 防垃圾 honeypot（正常用户不可见，name 不要改） -->
       <div style="display:none;">
