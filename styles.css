@@ -109,7 +109,7 @@
 }
 
 .brand-logo {
-  height: 66px;         /* logo 高度，可以根据实际图片大小调整 */
+  height: 60px;         /* logo 高度，可以根据实际图片大小调整 */
   margin-right: 8px;    /* logo 与文字之间的间距 */
 }
 
