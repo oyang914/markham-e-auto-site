@@ -2,7 +2,7 @@
 document.getElementById('year').textContent = new Date().getFullYear();
 
 // === Formspree 提交 ===
-const FORMSPREE_ENDPOINT = 'https://formspree.io/f/XXXXYYYY'; // 改成你的端点
+const FORMSPREE_ENDPOINT = 'https://formspree.io/f/XXXXYYYY'; 
 const form = document.getElementById('bookingForm');
 const statusEl = document.getElementById('formStatus');
 const submitBtn = form?.querySelector('button[type="submit"]');
@@ -69,5 +69,20 @@ if (form) {
     } finally {
       setSubmitting(false);
     }
+  });
+}
+function copyWeChat() {
+  const text = "MarkhamEAuto"; 
+  navigator.clipboard.writeText(text).then(() => {
+    const statusEl = document.getElementById("copyStatus");
+    if (statusEl) {
+      statusEl.textContent = " ✅ 已复制";
+      // 2 秒后清空提示
+      setTimeout(() => {
+        statusEl.textContent = "";
+      }, 2000);
+    }
+  }).catch(err => {
+    alert("复制失败，请手动复制: " + text);
   });
 }
