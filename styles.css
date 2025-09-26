@@ -134,4 +134,48 @@
     font-size: 0.95rem;
   }
 }
+/* FAQ 折叠样式 */
+.faq-item {
+  border: 1px solid #e7e7e9;
+  border-radius: 12px;
+  background: #fff;
+  margin-bottom: 14px;
+  padding: 10px 14px;
+}
+.faq-item > summary {
+  cursor: pointer;
+  font-weight: 700;
+  font-size: 1.05rem;
+  list-style: none;
+  position: relative;
+  padding-right: 22px;
+}
+.faq-item > summary::-webkit-details-marker { display: none; }
+.faq-item > summary::after {
+  content: "＋";
+  position: absolute; right: 0; top: 0;
+  color: #666;
+}
+.faq-item[open] > summary::after { content: "－"; }
+.faq-ol { margin: 8px 0 0 18px; padding: 0; }
+.faq-ol h4 { margin: 6px 0 4px; font-size: 1rem; }
+
+/* 表格 */
+.faq-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 14px 0;
+  font-size: 0.95rem;
+}
+.faq-table th, .faq-table td {
+  border: 1px solid #e5e7eb;
+  padding: 10px 12px;
+  text-align: left;
+  vertical-align: top;
+}
+.faq-table thead th {
+  background: #f6f7fb;
+  font-weight: 700;
+}
+.mt-2 { margin-top: 12px; }
 
