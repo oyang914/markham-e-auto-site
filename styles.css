@@ -71,23 +71,63 @@
   
   .btn-block{display:block;text-align:center}
   
-  .floating-cta{
-    position:fixed;right:16px;bottom:16px;background:var(--brand);
-    color:#fff;text-decoration:none;width:52px;height:52px;display:grid;place-items:center;
-    border-radius:999px;box-shadow:0 10px 24px rgba(37,99,235,.35);font-size:22px;
-  }
-  
-  /* 响应式 */
-  @media (max-width: 980px){
-    .hero-grid{grid-template-columns:1fr}
-    .cards, .price-grid, .reviews{grid-template-columns:1fr 1fr}
-    .form .grid{grid-template-columns:1fr 1fr}
-    .footer-grid{grid-template-columns:1fr 1fr}
-  }
-  @media (max-width: 640px){
-    .cards, .price-grid, .reviews{grid-template-columns:1fr}
-    .form .grid{grid-template-columns:1fr}
-  }
+/* 悬浮拨号按钮（蓝白主题 | PC/移动一致） */
+.floating-cta{
+  position: fixed;
+  right: calc(16px + env(safe-area-inset-right));
+  bottom: calc(16px + env(safe-area-inset-bottom));
+  width: 64px;
+  height: 64px;
+  border-radius: 999px;
+  background: var(--brand);       /* #2563eb */
+  color: #fff;                    /* 图标白色 */
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid #fff;         /* 白色描边更醒目 */
+  box-shadow: 0 12px 28px rgba(37,99,235,.35);
+  z-index: 1000;
+  transition: background .2s ease, transform .15s ease, box-shadow .2s ease;
+}
+
+/* 悬停/按下（桌面端） */
+.floating-cta:hover { 
+  background: var(--brand-2);     /* #1e40af */
+  transform: translateY(-1px) scale(1.04);
+  box-shadow: 0 16px 34px rgba(30,64,175,.45);
+}
+
+/* 键盘可达性 */
+.floating-cta:focus-visible{
+  outline: none;
+  box-shadow: 0 0 0 4px var(--ring), 0 12px 28px rgba(37,99,235,.35);
+}
+
+/* 图标统一大小；若用 <svg> 或 <i> 都生效 */
+.floating-cta svg,
+.floating-cta i{
+  width: 28px;
+  height: 28px;
+  color: #fff;
+}
+
+/* 若用图片做图标，强制变白（可删） */
+.floating-cta img{
+  width: 28px;
+  height: 28px;
+  filter: brightness(0) invert(1);
+}
+
+/* 响应式：在中/小屏略缩小按钮，保持一致体验 */
+@media (max-width: 980px){
+  .floating-cta{ width: 56px; height: 56px; }
+  .floating-cta svg, .floating-cta i, .floating-cta img{ width: 24px; height: 24px; }
+}
+@media (max-width: 640px){
+  .floating-cta{ width: 52px; height: 52px; }
+}
+
 /* 服务范围地图样式 */
 .map-wrapper {
     margin-top: 20px;
@@ -179,3 +219,24 @@
 }
 .mt-2 { margin-top: 12px; }
 
+/* 口碑顶栏 + 评分 */
+.review-actions{
+  display:flex; justify-content:space-between; align-items:center;
+  background:#fff; border:1px solid #e5e7eb; border-radius:12px; padding:10px 14px; margin-bottom:14px;
+}
+.summary-left{display:flex; align-items:center; gap:10px;}
+.stars{color:#f59e0b; letter-spacing:1px; font-size:20px; line-height:1;}
+.stars .half{position:relative;}
+.stars .half::after{content:"☆"; color:#e5e7eb; position:absolute; left:0; top:0; width:50%; overflow:hidden;}
+.score{display:flex; flex-direction:column;}
+.score-num{font-size:1.15rem;}
+
+@media (max-width:640px){
+  .review-actions{flex-direction:column; align-items:flex-start; gap:8px;}
+}
+
+/* 口碑卡片（复用你现有 .reviews 栅格） */
+.review-meta{color:var(--muted); font-size:.9rem; margin-top:6px;}
+.badge-inline{
+  display:inline-block; padding:2px 8px; border:1px solid #e5e7eb; border-radius:999px; font-size:.82rem; margin-left:6px; background:#fff;
+}

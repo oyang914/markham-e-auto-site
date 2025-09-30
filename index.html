@@ -98,7 +98,7 @@
         <p>覆盖多伦多及周边 · 同日可约 · 价格透明</p>
         <div class="cta-row">
           <a class="btn btn-primary" href="#booking">立即预约</a>
-          <a class="btn btn-ghost" href="tel:+16476855227">电话咨询：+1 (647) 685-5227</a>
+          <a class="btn btn-ghost" href="tel:+16476855227">电话咨询</a>
         </div>
         <ul class="hero-badges">
           <li>✔ 12个月/10,000km 质保</li>
@@ -115,7 +115,7 @@
   <!-- 信任背书 -->
   <section class="trust">
     <div class="container trust-flex">
-      <div>⭐️⭐️⭐️⭐️⭐️ 4.9/5 来自数百位车主评价</div>
+      <div>Follow us on:</div>
       <div>
         <a href="https://xhslink.com/m/5Lc1NKMwk8n" target="_blank" rel="noopener noreferrer">小红书</a> · 
         <a href="https://www.yelp.ca/biz/markham-e-auto-markham" target="_blank" rel="noopener noreferrer">Yelp</a> · 
@@ -130,7 +130,7 @@
       <h2>热门服务</h2>
       <div class="cards">
         <article class="card">
-          <h3>机油更换</h3>
+          <h3><机油更换/h3>
           <p>高品质全合成机油（可升级liqui moly或原厂机油），含机滤。适配主流车型。</p>
           <ul><li>含15点安全检查</li><li>重置保养里程</li></ul>
         </article>
@@ -241,26 +241,42 @@
     </div>
   </section>
 
-  <!-- 口碑评价 -->
-  <section id="reviews" class="section alt">
-    <div class="container">
-      <h2>车主口碑</h2>
-      <div class="reviews">
-        <blockquote>
-          <p>预约后两小时就上门，刹车异响解决了，还拍了施工过程给我看，放心！</p>
-          <cite>— Jason · Richmond Hill</cite>
-        </blockquote>
-        <blockquote>
-          <p>机油保养很专业，价格透明，比去店里省时间多了。</p>
-          <cite>— Lin · North York</cite>
-        </blockquote>
-        <blockquote>
-          <p>电瓶当场检测后给了两种方案，讲解很清楚，不忽悠。</p>
-          <cite>— Maria · Markham</cite>
-        </blockquote>
+  <!-- 车主口碑 -->
+<section id="reviews" class="section alt">
+  <div class="container">
+    <h2>车主口碑</h2>
+
+    <div class="review-actions">
+      <div class="summary-left">
+        <div class="stars" aria-hidden="true">
+          <span>★</span><span>★</span><span>★</span><span>★</span><span class="half">★</span>
+        </div>
+        <div class="score">
+          <strong id="aggScore" class="score-num">4.9/5</strong>
+          <span id="aggCount" class="muted">来自数百位车主评价</span>
+        </div>
       </div>
+
+      <!-- Review us 按钮 -->
+      <a id="reviewUsBtn" class="btn btn-primary btn-small" target="_blank" rel="noopener">
+        Review us
+      </a>
     </div>
-  </section>
+
+    <!-- 渲染列表 -->
+    <div id="reviewsList" class="reviews" aria-live="polite"></div>
+
+    <!-- 展开全部 -->
+    <div id="reviewsMoreWrap" style="margin-top:10px;display:none;">
+      <a id="showAllReviews" class="btn btn-ghost btn-small">显示全部评价</a>
+    </div>
+
+    <p class="muted small" style="margin-top:10px">
+      评价将按时间从新到旧展示；我们会根据城市与服务类型进行分析，以持续优化体验。
+    </p>
+  </div>
+</section>
+
 
 <!-- 预约表单 -->
 <section id="booking" class="section">
