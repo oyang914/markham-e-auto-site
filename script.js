@@ -47,14 +47,38 @@ window.addEventListener('scroll', () => {
 });
 
 // =====================
-// Booking form status (NO submit interception!)
+// Booking form status (NO interception)
 // =====================
 const form = document.getElementById('bookingForm');
 const status = document.getElementById('formStatus');
 
 if (form && status) {
   form.addEventListener('submit', () => {
-    // 不拦截提交！！！
     status.textContent = "提交中，请稍等...";
   });
 }
+
+// =====================
+// Fix: return from thank-you page reset form
+// =====================
+window.addEventListener('pageshow', function () {
+  const form = document.getElementById('bookingForm');
+  const status = document.getElementById('formStatus');
+  const submitBtn = document.querySelector('button[type="submit"]');
+
+  // 清空表单内容
+  if (form) {
+    form.reset();
+  }
+
+  // 恢复按钮状态
+  if (submitBtn) {
+    submitBtn.disabled = false;
+    submitBtn.textContent = "提交预约";
+  }
+
+  // 清空提示文字
+  if (status) {
+    status.textContent = "";
+  }
+});
